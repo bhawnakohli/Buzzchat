@@ -1,6 +1,3 @@
-FROM node:23-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-CMD ["npm", "start"]
+FROM nginx:stable-alpine
+COPY . /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
